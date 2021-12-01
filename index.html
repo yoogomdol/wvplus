@@ -91,6 +91,8 @@
                             <li class="scroll-to-section"><a href="#employment">채용정보</a></li>
                             <!-- <li class="scroll-to-section"><a href="#blog">Blog</a></li> -->
                             <li class="scroll-to-section"><a href="#contact">문의하기</a></li>
+                            <!-- 21.12.01 유종운- 네비 메뉴 '웃잡' 링크 추가 -->
+                            <li class="scroll-to-section"><a href="http://usjob.co.kr/">웃잡</a></li>
                             <!-- <li class="scroll-to-section"><div class="border-first-button"><a href="#contact">Free Quote</a></div></li>  -->
                         </ul>
                         <a class='menu-trigger'>
@@ -811,7 +813,8 @@
         var cityhall = new naver.maps.LatLng(35.8362248, 127.0686315),
             map = new naver.maps.Map('map', {
                 center: cityhall,
-                zoom: 16
+                // 21.12.01 유종운- 지도 초기 축척 확대
+                zoom: 17
             }),
             marker = new naver.maps.Marker({
                 map: map,
@@ -819,36 +822,40 @@
             });
 
         var contentString = [
-            '<div class="iw_inner">',
+            '<div class="iw_inner"" style="display:block;">',
+              // 21.12.01 유종운- 로고 img 클래스명 변경
+            '   <img src="' + HOME_PATH + '/assets/images/logo/logo.png" width="55" height="55" alt="워크밸류플러스" class="map_logo" /><br />',
             '   <h3>워크밸류플러스</h3>',
             '   <p>전북 전주시 덕진구 오공로 123, 전북테크비즈센터 5층<br />',
-            '       <img src="' + HOME_PATH + '/assets/images/logo/logo.png" width="55" height="55" alt="워크밸류플러스" class="thumb" /><br />',
-            '       소프트웨어개발<br />',
+              // 21.12.01 유종운- 로고 상단이동하기, 소프트웨어개발 문구 숨김
+            // '       <img src="' + HOME_PATH + '/assets/images/logo/logo.png" width="55" height="55" alt="워크밸류플러스" class="thumb" /><br />',
+            // '       소프트웨어개발<br />',
             '       <a href="http://usjob.co.kr" target="_blank">www.usjob.co.kr/</a>',
             '   </p>',
             '</div>'
         ].join('');
-
         var infowindow = new naver.maps.InfoWindow({
             content: contentString,
-            maxWidth: 200,
+            maxWidth: 250,
             backgroundColor: "#fff",
-            borderColor: "#2db400",
-            borderWidth: 5,
+            // borderColor: "#2db400",
+            borderColor: "#62a1d1",
+            // borderWidth: 5,
             anchorSize: new naver.maps.Size(30, 30),
             anchorSkew: true,
             anchorColor: "#fff",
-            pixelOffset: new naver.maps.Point(20, -20)
+            pixelOffset: new naver.maps.Point(0, -20)
         });
+        // naver.maps.Event.addListener(marker, "click", function (e) {
+        //     if (infowindow.getMap()) {
+        //         infowindow.close();
+        //     } else {
+        //         infowindow.open(map, marker);
+        //     }
+        // });
 
-        naver.maps.Event.addListener(marker, "click", function (e) {
-            if (infowindow.getMap()) {
-                infowindow.close();
-            } else {
-                infowindow.open(map, marker);
-            }
-        });
-
+        // 21.12.01 유종운- 정보창을 고정하기 위해 위 리스너를 주석처리 하고, 아래 코드만 남겼습니다. 
+        infowindow.open(map, marker);
         var map = new naver.maps.Map('map', mapOptions);
     </script>
     <script src="vendor/jquery/jquery.min.js"></script>

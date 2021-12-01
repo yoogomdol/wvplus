@@ -166,6 +166,29 @@ p {color: #292e41; word-break: keep-all !important;}
     color: #4da6e7 !important;
 } */
 
+/* 21.12.01 유종운- 맵 회사정보 로고 크기 변경 */
+.iw_inner img.map_logo {
+    width: 30%;
+    height: auto;
+    margin: 20px 10px 10px;
+}
+/* 21.12.01 유종운- 맵 회사명 사이즈, 컬러 변경 */
+.iw_inner h3 {
+    color: #62a1d1;
+    font-size: 18px;
+}
+/* 21.12.01 유종운- 맵 회사 주소 사이즈, 행간, 마진 */
+.iw_inner p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 20px 0 20px;
+}
+/* 21.12.01 유종운- 맵 웃잡 주소 */
+.iw_inner a {
+    display: block;
+    font-size: 12px;
+    margin-top: 10px;
+}
 /* FOOTER */
 .footer-main .container {
     width: 1300px;
